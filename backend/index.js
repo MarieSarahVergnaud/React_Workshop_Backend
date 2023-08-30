@@ -4,6 +4,8 @@ const express = require('express');
 // Initialisation de l'application Express
 const app = express();
 
+const router = require ("./src/routes/rickCharacter.route.js")
+
 // Définition du numéro de port sur lequel le serveur écoutera
 const port = 5000;
 
@@ -11,6 +13,9 @@ const port = 5000;
 app.get('/', (req, res) => {
   res.send('hello world');
 });
+
+app.use(router);
+
 
 console.log("bonjour mimi")
 // Mise en écoute du serveur sur le port spécifié
