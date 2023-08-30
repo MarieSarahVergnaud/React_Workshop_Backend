@@ -6,7 +6,7 @@ function HomePage() {
     const [selectedValue, setSelectedValue] = useState("...");
 
     useEffect(() => {
-        fetch("https://rickandmortyapi.com/api/character")
+        fetch("https://localhost:5000/characters")
             .then((response) => response.json())
             .then((res) => setData(res.results))
             .catch((err) => console.error(err))

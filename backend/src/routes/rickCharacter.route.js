@@ -1,9 +1,10 @@
-const express = require('express');
+import express from "express";
 
-const { getAllCharacters } = require ('../controllers/rickCharacter.controller.js');
+import { getAllCharacters, getCharacterById } from "../controllers/rickCharacter.controller.js";
 
 const router = express.Router();
 
 router.get("/characters", getAllCharacters);
+router.get("/characters/:id", getCharacterById);
 
-module.exports = router;
+export default router;
