@@ -1,6 +1,6 @@
-const mysql = require('mysql2/promise');
+import mysql from "mysql2/promise"
 
-const dotenv = require('dotenv')
+import dotenv from "dotenv"
 dotenv.config()
 
 
@@ -22,6 +22,7 @@ database.getConnection((error) => {
     console.log("Success, the database has been reached !");
 })
 
-module.exports = {
-    database
-};
+export default database;
+// module.exports = {
+//     database
+// };
