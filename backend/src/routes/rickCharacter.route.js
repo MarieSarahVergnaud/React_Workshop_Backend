@@ -4,7 +4,7 @@ import { getAllCharacters, getCharacterById } from "../controllers/rickCharacter
 
 const router = express.Router();
 
-router.get("/characters", getAllCharacters);
-router.get("/characters/:id", getCharacterById);
+router.get("/", getAllCharacters);
+router.get("/:id", getCharacterById);
 
 export default router;
