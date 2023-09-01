@@ -27,7 +27,7 @@ app.use(cors(corsOptions))
 
 app.use(express.json());
 
-app.use("/characters",router);
+app.use(router);
 
 
 console.log("bonjour mimi")
