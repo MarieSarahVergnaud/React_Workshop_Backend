@@ -6,9 +6,9 @@ function HomePage() {
     const [selectedValue, setSelectedValue] = useState("...");
 
     useEffect(() => {
-        fetch("https://localhost:5000/characters")
+        fetch("http://localhost:5000/characters")
             .then((response) => response.json())
-            .then((res) => setData(res.results))
+            .then((res) => setData(res))
             .catch((err) => console.error(err))
     }, [])
 
@@ -20,7 +20,7 @@ function HomePage() {
         <main className="home-page">
             <select className="home-page_select" onChange={handleChange}>
                 <option>...</option>
-                {data.map((el) => {
+                {data && data.map((el) => {
                     return (
                         <option key={el.id}>{el.name}</option>
                     )
@@ -29,8 +29,7 @@ function HomePage() {
             </select>
 
             <ul className="home-page_ul">
-                {data
-                    .filter((el) => selectedValue === "..." || selectedValue === el.name)
+                {data && data.filter((el) => selectedValue === "..." || selectedValue === el.name)
                     .map((el) => {
                     return (
                         <RickAndMortyCard key={el.id} id={el.id} name={el.name} image={el.image} />
