@@ -5,14 +5,14 @@ function AdminPage() {
             <h2>Créer votre personnage</h2>
         </li>
         <li className="admin-page_form">
-            <form>
+            <form className="creation-character_form">
                 <input />
                 <input />
                 <input />
                 <input />
                 <input />
                 <input />
-                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <button type="submit" >Submit</button>
             </form>
         </li>
           <li className="admin-page_message_success">
