@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CreactionCharacterForm from "./creactionCharacterForm";
 
 function AdminPage() {
     const[isDataSended, setIsDataSended] = useState(false)
@@ -45,50 +46,24 @@ function AdminPage() {
 
     return (
      <ul className="admin-page">
-        <li className="admin-page_title">
-            <h2>Créer votre personnage</h2>
-        </li>
-            {!isDataSended &&
-        <li className="admin-page_form">
-            
-            <form className="creation-character_form">
-                <input 
-                    name="name"
-                    placeholder="name"
-                    onChange={handleChange}
-                    value={formData.name}
-                    />
-                <input 
-                    name="status"
-                    placeholder="status"
-                    onChange={handleChange}
-                    value={formData.status}
-                    />
-                <input 
-                    name="gender"
-                    placeholder="gender"
-                    onChange={handleChange}
-                    value={formData.gender}
-                    />
-                <input 
-                    name="species"
-                    placeholder="species"
-                    onChange={handleChange}
-                    value={formData.species}
-                    />
-                <input 
-                    name="image"
-                    placeholder="image"
-                    onChange={handleChange}
-                    value={formData.image}
-                    />
-                <button type="submit" onClick={handleSubmit}>Submit</button>
-            </form>
-        </li>
-            }{isDataSended &&
+        {!isDataSended &&
+         <>
+          <li className="admin-page_title">
+              <h2>Créer votre personnage</h2>
+           </li>
+           <li className="admin-page_form">
+              <CreactionCharacterForm  
+                 formData={formData} 
+                 handleChange={handleChange} 
+                 handleSubmit={handleSubmit}
+                />
+          </li>
+         </> 
+        }
+        {isDataSended &&
           <li className="admin-page_message_success">
-            <div className="progress-bar"></div>
-            <p>Personnage crée !</p>
+             <div className="progress-bar"></div>
+              <p>Personnage crée !</p>
           </li>
            }    
      </ul>
