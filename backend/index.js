@@ -7,7 +7,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-import router from "./src/routes/rickCharacter.route.js"
+import charactersRouter from "./src/routes/rickCharacter.route.js"
+import uploadRouter from "./src/routes/upload.route.js"
 // const router = require ("./src/routes/rickCharacter.route.js")
 
 // Définition du numéro de port sur lequel le serveur écoutera
@@ -20,6 +21,7 @@ const port = process.env.BACKEND_PORT;
 
 const corsOptions = {
   origin: process.env.FRONTEND_URL,
+  methods: ["POST"],
   optionSuccessStatus: 200,
 }
 
@@ -27,7 +29,8 @@ app.use(cors(corsOptions))
 
 app.use(express.json());
 
-app.use(router);
+app.use("/characters", charactersRouter);
+app.use("/upload" ,uploadRouter);
 
 
 console.log("bonjour mimi")
