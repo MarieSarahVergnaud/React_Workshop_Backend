@@ -4,8 +4,8 @@ import { getAllCharacters, getCharacterById, createCharacter } from "../controll
 
 const router = express.Router();
 
-router.get("/characters", getAllCharacters); // VERBE HTTP
-router.get("/characters/:id", getCharacterById);
-router.post("/characters", createCharacter);
+router.get("/", getAllCharacters); // VERBE HTTP
+router.get("/:id", getCharacterById);
+router.post("/", createCharacter);
 
 export default router;
